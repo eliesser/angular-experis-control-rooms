@@ -6,6 +6,7 @@
   flex-direction: column;
   padding-top: 16px;
   padding: 0px;
+  gap: 16px;
 
   @include respond-to('tablet-small') {
     flex-direction: row;
@@ -24,6 +25,7 @@
     transition: transform 0.3s ease;
     border-radius: 0px;
     border: 1px solid rgb(228, 228, 228);
+    z-index: 1;
 
     @include respond-to('mobile') {
       width: 300px;
@@ -38,6 +40,5 @@
   .results {
     flex: 1;
     overflow-y: auto;
-    padding: 20px;
   }
 }

@@ -1,0 +1,38 @@
+@import '../../../../styles/variables';
+
+.card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(228, 228, 228);
+  border-radius: $border-radius-containers;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  .card-image {
+    height: 150px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .card-description {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    padding-bottom: 24px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-top: 5px solid $primary;
+
+    .name {
+      width: calc(100% - 14px);
+      height: 18px;
+      text-transform: uppercase;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
