@@ -1,0 +1,36 @@
+$breakpoints: (
+  'mobile-small': 320px,
+  'mobile': 480px,
+  'tablet-small': 768px,
+  'tablet': 830px,
+  'desktop-small': 1024px,
+  'desktop': 1300px
+);
+
+$primary: #2E344D;
+$secondary: #F5F7FB;
+
+$colors: (
+  primary: $primary,
+  secondary: $secondary,
+);
+
+@each $name, $color in $colors {
+  .bg-#{$name} {
+    background-color: $color;
+  }
+}
+
+@each $name, $color in $colors {
+  .text-#{$name} {
+    color: $color;
+  }
+}
+
+@mixin respond-to($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+
+  @media (min-width: $value) {
+    @content;
+  }
+}
