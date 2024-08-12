@@ -62,10 +62,12 @@ app.get('/rooms', (req, res) => {
       const end = start + Number(offset);
       const paginatedRooms = rooms.slice(start, end);
 
-      res.json({
-        data: paginatedRooms,
-        total
-      });
+      setTimeout(() => {
+        res.json({
+          data: paginatedRooms,
+          total
+        });
+      }, 1000);
 
     } catch (parseError) {
       res.status(500).json({ error: 'Error parsing data' });

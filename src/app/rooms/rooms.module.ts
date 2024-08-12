@@ -11,6 +11,7 @@ import { RoomCardComponent } from './components/room-card/room-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PaginatorComponent } from '../components/paginator/paginator.component';
 import { CapacityOccupancyPipe } from '../shared/pipes/capacityOccupancy/capacity-occupancy.pipe';
+import { LoadingComponent } from '../components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { CapacityOccupancyPipe } from '../shared/pipes/capacityOccupancy/capacit
     ReactiveFormsModule,
     PaginatorComponent,
     CapacityOccupancyPipe,
+    LoadingComponent,
   ],
 })
 export class RoomsModule {}

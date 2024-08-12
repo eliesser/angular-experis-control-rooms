@@ -35,6 +35,7 @@ export class RoomListComponent {
   }
 
   getAll(filters: IParamsPaginate): void {
+    this.rooms = [];
     if (filters?.page) this.page = filters.page;
     else {
       filters.page = 1;
