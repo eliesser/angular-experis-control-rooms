@@ -1,0 +1,16 @@
+.paginator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+  box-sizing: border-box;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  .numbers {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+}

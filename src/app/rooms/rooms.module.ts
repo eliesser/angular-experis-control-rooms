@@ -9,6 +9,7 @@ import { RoomListComponent } from './components/room-list/room-list.component';
 import { RoomPanelFilterComponent } from './components/room-panel-filter/room-panel-filter.component';
 import { RoomCardComponent } from './components/room-card/room-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PaginatorComponent } from '../components/paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     RouterModule,
     RoomsRoutingModule,
     ReactiveFormsModule,
+    PaginatorComponent,
   ],
 })
 export class RoomsModule {}

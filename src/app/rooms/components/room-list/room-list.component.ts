@@ -50,4 +50,8 @@ export class RoomListComponent {
       this.totalPages = Math.ceil(resp.total / this.offset);
     });
   }
+
+  onPageChange(page: number): void {
+    this.getAll({ page } as IParamsPaginate);
+  }
 }
