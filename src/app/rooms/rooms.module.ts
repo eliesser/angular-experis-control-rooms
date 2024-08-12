@@ -8,6 +8,7 @@ import { RoomsComponent } from './rooms.component';
 import { RoomListComponent } from './components/room-list/room-list.component';
 import { RoomPanelFilterComponent } from './components/room-panel-filter/room-panel-filter.component';
 import { RoomCardComponent } from './components/room-card/room-card.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,11 @@ import { RoomCardComponent } from './components/room-card/room-card.component';
     RoomPanelFilterComponent,
     RoomCardComponent,
   ],
-  imports: [CommonModule, RouterModule, RoomsRoutingModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    RoomsRoutingModule,
+    ReactiveFormsModule,
+  ],
 })
 export class RoomsModule {}

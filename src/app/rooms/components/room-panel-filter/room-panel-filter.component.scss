@@ -1,0 +1,46 @@
+@import '../../../../styles/variables';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  .section {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    color: $primary;
+
+    .title {
+      font-weight: bold;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+
+      input {
+        width: 100%;
+      }
+
+      .caption-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .footer {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 4px;
+  }
+}

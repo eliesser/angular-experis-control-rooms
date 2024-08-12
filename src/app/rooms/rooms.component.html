@@ -1,8 +1,8 @@
 <div class="container">
   <div class="panel">
-    <app-room-panel-filter/>
+    <app-room-panel-filter (findRoomsEmit)="setFilters($event)"/>
   </div>
   <div class="results">
-    <router-outlet/>
+    <app-room-list [filters]="filters"/>
   </div>
 </div>

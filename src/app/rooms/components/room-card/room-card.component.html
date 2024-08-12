@@ -10,9 +10,17 @@
     ></article>
   </section>
   <section class='bg-secondary text-primary card-description'>
-    <article class='name'>
-      {{room.name}}
-    </article>
-    <button class="primary">Edit</button>
+    <section class="item">
+      <article class='title'>
+        {{room.name}}
+      </article>
+      <button class="primary">Edit</button>
+    </section>
+    <section class="item">
+      <article><span class="key">Floor:</span> {{room.floor}}</article>
+    </section>
+    <section class="item">
+      <article><span class="key">Occupancy:</span> {{room.occupancy +'/'+ room.capacity}}</article>
+    </section>
   </section>
 </section>

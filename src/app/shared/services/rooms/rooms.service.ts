@@ -1,12 +1,12 @@
 import { inject, Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { environment } from '../../../../environments/environment';
 import {
   IParamsPaginate,
   IResponseRooms,
 } from '../../interfaces/room.interface';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +14,15 @@ import { HttpClient } from '@angular/common/http';
 export class RoomsService {
   private http = inject(HttpClient);
 
-  getAll(filters: IParamsPaginate): Observable<IResponseRooms> {
-    return this.http.get<IResponseRooms>(`${environment.urlApi}/rooms`, {});
+  getAll({ floor, ...filters }: IParamsPaginate): Observable<IResponseRooms> {
+    let params = new HttpParams({
+      fromObject: {
+        ...filters,
+        ...(JSON.stringify(floor) ? { floor: JSON.stringify(floor) } : {}),
+      },
+    });
+    return this.http.get<IResponseRooms>(`${environment.urlApi}/rooms`, {
+      params,
+    });
   }
 }

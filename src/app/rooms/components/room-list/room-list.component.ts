@@ -1,4 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input, SimpleChanges } from '@angular/core';
+
 import {
   IParamsPaginate,
   IResponseRooms,
@@ -12,13 +13,22 @@ import { RoomsService } from '../../../shared/services/rooms/rooms.service';
   styleUrl: './room-list.component.scss',
 })
 export class RoomListComponent {
+  @Input() filters!: IParamsPaginate;
+
   rooms!: Room[];
   page: number = 1;
   offset: number = 10;
   totalPages: number = 0;
-  filters: any = {};
 
   private roomService = inject(RoomsService);
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['filters']) {
+      const currentFilters = changes['filters'].currentValue;
+
+      if (currentFilters) this.getAll(currentFilters);
+    }
+  }
 
   ngOnInit(): void {
     this.getAll({ page: 1 } as IParamsPaginate);
@@ -36,7 +46,6 @@ export class RoomListComponent {
     this.filters = { ...this.filters, ...filters };
 
     this.roomService.getAll(this.filters).subscribe((resp: IResponseRooms) => {
-      console.log(resp);
       this.rooms = resp.data;
       this.totalPages = Math.ceil(resp.total / this.offset);
     });

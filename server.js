@@ -52,7 +52,7 @@ app.get('/rooms', (req, res) => {
       }
 
       if (floor) {
-        const floors = floor.split(',').map(Number);
+        const floors = JSON.parse(floor);
         rooms = rooms.filter(room => room.floor && floors.includes(room.floor));
       }
 
