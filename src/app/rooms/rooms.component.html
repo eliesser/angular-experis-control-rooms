@@ -5,8 +5,17 @@
   <div class="results">
     <section class="toolbar">
       <span class="title">ROOMS</span>
-      <button class="primary" (click)="visiblePanel=!visiblePanel">Filters</button>
+      <section class="butttons">
+        <button class="secondary filters" (click)="visiblePanel=!visiblePanel">Filters</button>
+        <button 
+        class="primary new"
+          (click)="openModal()"
+        >New</button>
+      </section>
     </section>
-    <app-room-list [filters]="filters"/>
+    <app-room-list 
+      [filters]="filters"
+      (openModalEmit)="openModal($event)"
+    />
   </div>
 </div>

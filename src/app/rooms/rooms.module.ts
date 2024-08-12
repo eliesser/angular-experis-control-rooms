@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PaginatorComponent } from '../components/paginator/paginator.component';
 import { CapacityOccupancyPipe } from '../shared/pipes/capacityOccupancy/capacity-occupancy.pipe';
 import { LoadingComponent } from '../components/loading/loading.component';
+import { RoomFormComponent } from './components/room-form/room-form.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { LoadingComponent } from '../components/loading/loading.component';
     RoomListComponent,
     RoomPanelFilterComponent,
     RoomCardComponent,
+    RoomFormComponent,
   ],
   imports: [
     CommonModule,

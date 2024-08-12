@@ -1,4 +1,11 @@
-import { Component, inject, Input, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  inject,
+  Input,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 
 import {
   IParamsPaginate,
@@ -14,6 +21,7 @@ import { RoomsService } from '../../../shared/services/rooms/rooms.service';
 })
 export class RoomListComponent {
   @Input() filters!: IParamsPaginate;
+  @Output() openModalEmit: EventEmitter<Room> = new EventEmitter<Room>();
 
   rooms!: Room[];
   page: number = 1;
@@ -54,5 +62,15 @@ export class RoomListComponent {
 
   onPageChange(page: number): void {
     this.getAll({ page } as IParamsPaginate);
+  }
+
+  openModal(room: Room) {
+    this.openModalEmit.emit(room);
+  }
+
+  onDelete(id: string) {
+    this.roomService.delete(id).subscribe((isDeleted: boolean) => {
+      this.rooms = this.rooms.filter((room) => room.id !== id);
+    });
   }
 }

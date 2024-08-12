@@ -1,0 +1,17 @@
+@import '../../../../styles/variables';
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+
+  .title {
+    font-weight: bold;
+    color: $primary;
+  }
+}
+
+.button {
+  visibility: hidden;
+}

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Room } from '../../../shared/models/room';
 
 @Component({
@@ -8,4 +8,14 @@ import { Room } from '../../../shared/models/room';
 })
 export class RoomCardComponent {
   @Input() room!: Room;
+  @Output() openModalEmit: EventEmitter<Room> = new EventEmitter<Room>();
+  @Output() removeEmit: EventEmitter<string> = new EventEmitter<string>();
+
+  onEdit() {
+    this.openModalEmit.emit(this.room);
+  }
+
+  onRemove() {
+    this.removeEmit.emit(this.room.id);
+  }
 }

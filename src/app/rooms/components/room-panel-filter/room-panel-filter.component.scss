@@ -20,6 +20,22 @@
     padding-top: 8px;
     color: $primary;
 
+    &.header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      .close-button {
+        border: 1px solid $primary;
+        color: $primary;
+
+        @include respond-to('tablet') {
+          display: none;
+        }
+      }
+    }
+
     .title {
       font-weight: bold;
     }
@@ -31,23 +47,6 @@
 
       input {
         margin-right: 8px;
-      }
-    }
-
-    .content {
-      display: flex;
-      flex-direction: column;
-
-      input {
-        width: 100%;
-      }
-
-      .caption-content {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        font-size: 14px;
-        font-weight: bold;
       }
     }
   }

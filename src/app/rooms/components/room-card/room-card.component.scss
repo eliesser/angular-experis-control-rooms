@@ -9,11 +9,21 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
   .card-image {
+    position: relative;
     height: 150px;
     width: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    .remove-button {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      border: 1px solid $primary;
+      color: $primary;
+      z-index: 1;
+    }
   }
 
   .card-description {

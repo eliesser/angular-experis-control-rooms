@@ -4,8 +4,15 @@
   (ngSubmit)="onSubmit()"
 >
   <section>
-    <section class="section">
+    <section class="section header">
       <span class="title">FILTERS</span>
+      <button
+        type="button"
+        class="close-button"
+        (click)="onReset()"
+      >
+        <span class="sr-only">X</span>
+      </button>
     </section>
     <section class="section">
       <label
@@ -54,7 +61,7 @@
       >
         Capacity
       </label>
-      <section class="content">
+      <section class="content-input-range">
         <input 
           #capacity
           class="" 
@@ -79,7 +86,7 @@
       >
         Occupancy
       </label>
-      <div class="content">
+      <div class="content-input-range">
         <input 
           #occupancy
           class="" 

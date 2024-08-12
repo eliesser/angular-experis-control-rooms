@@ -1,0 +1,92 @@
+<form
+  class=""
+  focusInvalidInput
+  (ngSubmit)="onSave()"
+  [formGroup]="form"
+  novalidate
+  autocomplete="false"
+>
+  <section class="section">
+    <label
+      for="name"
+      class="title"
+    >
+      Name:
+    </label>
+    <input
+      class=""
+      formControlName="name"
+      name="name"
+      type="text"
+      autocomplete="off"
+    />
+  </section>
+  <section class="section">
+    <label
+      for="floor"
+      class="title"
+    >
+      Floor:
+    </label>
+    <select
+      class=""
+      formControlName="floor"
+      name="floor"
+    >
+      <option *ngFor="let f of [1, 2, 3, 4, 5]" [value]="f">
+        Floor {{ f }}
+      </option>
+    </select>
+  </section>  
+  <section class="section">
+    <label
+      for="capacity"
+      class="title"
+    >
+      Capacity
+    </label>
+    <section class="content-input-range">
+      <input 
+        #capacity
+        class="" 
+        type="range" 
+        name="capacity"
+        formControlName="capacity"
+        min="2" 
+        max="30"
+        step="1"
+      />
+      <section class="caption-content">
+        <span class="">Min (2)</span>
+        <span class="">{{capacity.value}}</span>
+        <span class="">Max (30)</span>
+      </section>
+    </section>
+  </section>
+  <section class="section">
+    <label
+      for="occupancy"
+      class="title"
+    >
+      Occupancy
+    </label>
+    <div class="content-input-range">
+      <input 
+        #occupancy
+        class="" 
+        type="range" 
+        name="occupancy"
+        formControlName="occupancy"
+        min="0" 
+        max="30"
+        step="1"
+      />
+      <section class="caption-content">
+        <span>Min (0)</span>
+        <span>{{occupancy.value}}</span>
+        <span>Max (30)</span>
+      </section>
+    </div>
+  </section>
+  <button class="button" type="submit"></button>
+</form>

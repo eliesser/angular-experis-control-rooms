@@ -7,3 +7,20 @@ body {
   padding: 0;
   font-family: 'Helvetica', 'Arial', sans-serif;
 }
+
+.content-input-range {
+  display: flex;
+  flex-direction: column;
+
+  input {
+    width: 100%;
+  }
+
+  .caption-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: bold;
+  }
+}

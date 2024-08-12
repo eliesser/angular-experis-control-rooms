@@ -1,7 +1,12 @@
 <section class='list'>
   <app-loading/>
   <section class='card-container'>
-    <app-room-card *ngFor="let room of rooms" [room]="room"/>
+    <app-room-card 
+      *ngFor="let room of rooms" 
+      [room]="room"
+      (openModalEmit)="openModal($event)"
+      (removeEmit)="onDelete($event)"
+    />
   </section>
   @if(totalPages > 0) {
     <app-paginator

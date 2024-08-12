@@ -58,6 +58,8 @@ export class RoomPanelFilterComponent {
     this.findRoomsEmit.emit(filters);
   }
 
+  onClose() {}
+
   private initForm(): void {
     const controls: any = {
       name: [''],

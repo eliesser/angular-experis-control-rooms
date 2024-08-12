@@ -8,13 +8,20 @@
         'url(' + room.image + ')'
       "
     ></article>
+    <button
+      type="button"
+      class="remove-button"
+      (click)="onRemove()"
+    >
+      <span class="sr-only">X</span>
+    </button>
   </section>
   <section class='bg-secondary text-primary card-description'>
     <section class="item">
       <article class='title'>
         {{room.name}}
       </article>
-      <button class="primary">Edit</button>
+      <button class="primary" (click)="onEdit()">Edit</button>
     </section>
     <section class="item">
       <article><span class="key">Floor:</span> {{room.floor}}</article>
