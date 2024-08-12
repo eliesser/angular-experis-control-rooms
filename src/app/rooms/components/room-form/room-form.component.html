@@ -20,6 +20,9 @@
       type="text"
       autocomplete="off"
     />
+    <ng-container *ngIf="nameField?.touched && nameField?.errors">
+      <small *ngIf="nameField?.hasError('required')" class="error">*Required</small>
+    </ng-container>
   </section>
   <section class="section">
     <label
@@ -37,6 +40,9 @@
         Floor {{ f }}
       </option>
     </select>
+    <ng-container *ngIf="floorField?.touched && floorField?.errors">
+      <small *ngIf="floorField?.hasError('required')" class="error">*Required</small>
+    </ng-container>
   </section>  
   <section class="section">
     <label
@@ -62,6 +68,9 @@
         <span class="">Max (30)</span>
       </section>
     </section>
+    <ng-container *ngIf="capacityField?.touched && capacityField?.errors">
+      <small *ngIf="capacityField?.hasError('required')" class="error">*Required</small>
+    </ng-container>
   </section>
   <section class="section">
     <label
@@ -87,6 +96,9 @@
         <span>Max (30)</span>
       </section>
     </div>
+    <ng-container *ngIf="occupancyField?.touched && occupancyField?.errors">
+      <small *ngIf="occupancyField?.hasError('required')" class="error">*Required</small>
+    </ng-container>
   </section>
   <button class="button" type="submit"></button>
 </form>

@@ -20,6 +20,22 @@ export class RoomFormComponent {
     this.initForm();
   }
 
+  get nameField() {
+    return this.form.get('name');
+  }
+
+  get floorField() {
+    return this.form.get('floor');
+  }
+
+  get capacityField() {
+    return this.form.get('capacity');
+  }
+
+  get occupancyField() {
+    return this.form.get('occupancy');
+  }
+
   onSave() {
     this.form.markAllAsTouched();
     this.form.updateValueAndValidity();
@@ -53,8 +69,8 @@ export class RoomFormComponent {
     this.form = this.formBuilder.group({
       name: [name, [Validators.required]],
       floor: [floor, [Validators.required]],
-      capacity: [capacity],
-      occupancy: [occupancy],
+      capacity: [capacity, [Validators.required]],
+      occupancy: [occupancy, [Validators.required]],
     });
   }
 }
