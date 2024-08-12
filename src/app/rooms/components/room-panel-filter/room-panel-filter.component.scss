@@ -3,7 +3,13 @@
 .form {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
   gap: 4px;
+
+  @include respond-to('mobile') {
+    justify-content: flex-start;
+  }
 
   .section {
     display: flex;
@@ -49,8 +55,13 @@
   .footer {
     padding-top: 10px;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    flex-direction: column;
     gap: 4px;
+
+    @include respond-to('mobile') {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
   }
 }

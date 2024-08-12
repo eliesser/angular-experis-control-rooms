@@ -1,8 +1,12 @@
 <div class="container">
-  <div class="panel">
+  <div class="panel" [ngClass]="{ 'visible': visiblePanel }">
     <app-room-panel-filter (findRoomsEmit)="setFilters($event)"/>
   </div>
   <div class="results">
+    <section class="toolbar">
+      <span class="title">ROOMS</span>
+      <button class="primary" (click)="visiblePanel=!visiblePanel">Filters</button>
+    </section>
     <app-room-list [filters]="filters"/>
   </div>
 </div>

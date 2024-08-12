@@ -11,8 +11,10 @@ import {
 })
 export class RoomsComponent {
   filters!: IParamsPaginate;
+  visiblePanel: boolean = false;
 
   setFilters(filters: IParamsFilters) {
+    this.visiblePanel = false;
     this.filters = filters as IParamsPaginate;
   }
 }
