@@ -1,10 +1,5 @@
 <section class='list'>
   <section class='card-container'>
-    <app-room-card/>
-    <app-room-card/>
-    <app-room-card/>
-    <app-room-card/>
-    <app-room-card/>
-    <app-room-card/>
+    <app-room-card *ngFor="let room of rooms" [room]="room"/>
   </section>
 </section>

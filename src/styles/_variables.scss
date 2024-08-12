@@ -9,6 +9,8 @@ $breakpoints: (
 
 $primary: #2E344D;
 $secondary: #F5F7FB;
+$disabled: #d6d6d6;
+$disabled-text: #a6a6a6;
 
 $border-radius-containers: 26px;
 $border-radius-forms: 12px;
@@ -16,6 +18,8 @@ $border-radius-forms: 12px;
 $colors: (
   primary: $primary,
   secondary: $secondary,
+  disabled: $disabled,
+  'disabled-text': $disabled-text,
 );
 
 @each $name, $color in $colors {

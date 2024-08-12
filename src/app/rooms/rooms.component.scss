@@ -8,7 +8,7 @@
   padding: 0px;
   gap: 16px;
 
-  @include respond-to('tablet-small') {
+  @include respond-to('tablet') {
     flex-direction: row;
     max-width: 1250px;
     margin: auto;
@@ -31,7 +31,7 @@
       width: 300px;
     }
 
-    @include respond-to('tablet-small') {
+    @include respond-to('tablet') {
       position: relative;
       border-radius: $border-radius-containers;
     }

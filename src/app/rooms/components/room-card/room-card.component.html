@@ -5,13 +5,14 @@
     <article
       class='card-image'
       [style.background-image]="
-        'url(./assets/img/room.jpg)'
+        'url(' + room.image + ')'
       "
     ></article>
   </section>
   <section class='bg-secondary text-primary card-description'>
     <article class='name'>
-      Text
+      {{room.name}}
     </article>
+    <button class="primary">Edit</button>
   </section>
 </section>

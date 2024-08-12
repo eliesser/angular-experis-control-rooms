@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Room } from '../../../shared/models/room';
 
 @Component({
   selector: 'app-room-card',
   templateUrl: './room-card.component.html',
   styleUrl: './room-card.component.scss',
 })
-export class RoomCardComponent {}
+export class RoomCardComponent {
+  @Input() room!: Room;
+}
