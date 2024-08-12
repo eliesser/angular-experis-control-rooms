@@ -18,6 +18,16 @@
       font-weight: bold;
     }
 
+    .content-checkbox {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      input {
+        margin-right: 8px;
+      }
+    }
+
     .content {
       display: flex;
       flex-direction: column;
