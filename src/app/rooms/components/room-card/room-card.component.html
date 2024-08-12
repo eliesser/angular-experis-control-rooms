@@ -1,5 +1,5 @@
 <section
-  class='cursor-pointer card'
+  class='card'
 >
   <section class='card-image'>
     <article
@@ -20,7 +20,9 @@
       <article><span class="key">Floor:</span> {{room.floor}}</article>
     </section>
     <section class="item">
-      <article><span class="key">Occupancy:</span> {{room.occupancy +'/'+ room.capacity}}</article>
+      <article>
+        <span class="key">Occupancy:</span> {{ room.capacity | capacityOccupancy:room.occupancy }}
+      </article>
     </section>
   </section>
 </section>
