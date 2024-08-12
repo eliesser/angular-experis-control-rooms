@@ -3,6 +3,14 @@
     class="secondary"
     type="button"
     [disabled]="page===1"
+    (click)="onGoToPage(1)"
+  >
+    <<
+  </button>
+  <button
+    class="secondary"
+    type="button"
+    [disabled]="page===1"
     (click)="onPreviousPage()"
   >
     <
@@ -40,5 +48,13 @@
     (click)="onNextPage()"
   >
     >
+  </button>
+  <button
+    class="secondary"
+    type="button"
+    [disabled]="page===totalPages"
+    (click)="onGoToPage(totalPages)"
+  >
+    >>
   </button>
 </div> 
