@@ -157,16 +157,9 @@ describe('RoomsService', () => {
   });
 
   it('should call delete() method', (doneFn) => {
-    const mockData: Room = {
-      id: 'a3bda92f-523d-4d99-9823-63076e1758c5',
-      name: 'Room blah',
-      image: 'https://via.placeholder.com/240x180/66ef8b/eb61ef.png?text=',
-      capacity: 16,
-      occupancy: 7,
-      floor: 4,
-    };
+    const id: string = 'a3bda92f-523d-4d99-9823-63076e1758c5';
 
-    roomsService.delete(mockData.id).subscribe({
+    roomsService.delete(id).subscribe({
       next: (data) => {
         expect(data).toEqual(true);
         doneFn();
@@ -176,7 +169,7 @@ describe('RoomsService', () => {
       },
     });
 
-    const url = `${environment.urlApi}/room/${mockData.id}`;
+    const url = `${environment.urlApi}/room/${id}`;
     const req = httpController.expectOne(url);
     expect(req.request.method).toEqual('DELETE');
     req.flush(true);
