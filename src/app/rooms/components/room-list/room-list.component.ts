@@ -1,3 +1,4 @@
+// Angular imports
 import {
   Component,
   EventEmitter,
@@ -7,12 +8,10 @@ import {
   SimpleChanges,
 } from '@angular/core';
 
-import {
-  IParamsPaginate,
-  IResponseRooms,
-} from '../../../shared/interfaces/room.interface';
+// Project imports
+import { IParamsPaginate, IResponseRooms } from '../../../shared/interfaces';
 import { Room } from '../../../shared/models/room';
-import { RoomsService } from '../../../shared/services/rooms/rooms.service';
+import { RoomsService } from '../../../shared/services';
 
 @Component({
   selector: 'app-room-list',
@@ -28,7 +27,7 @@ export class RoomListComponent {
   offset: number = 10;
   totalPages: number = 0;
 
-  private roomService = inject(RoomsService);
+  private roomService: RoomsService = inject(RoomsService);
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['filters']) {
@@ -64,12 +63,12 @@ export class RoomListComponent {
     this.getAll({ page } as IParamsPaginate);
   }
 
-  openModal(room: Room) {
+  openModal(room: Room): void {
     this.openModalEmit.emit(room);
   }
 
-  onDelete(id: string) {
-    this.roomService.delete(id).subscribe((isDeleted: boolean) => {
+  onDelete(id: string): void {
+    this.roomService.delete(id).subscribe(() => {
       this.rooms = this.rooms.filter((room) => room.id !== id);
     });
   }

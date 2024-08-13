@@ -1,7 +1,11 @@
+// Angular imports
 import { inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
+// Third Party Libraries imports
+import { Observable } from 'rxjs';
+
+// Project imports
 import { environment } from '../../../../environments/environment';
 import {
   IParamsPaginate,
@@ -13,11 +17,11 @@ import { Room } from '../../models/room';
   providedIn: 'root',
 })
 export class RoomsService {
-  private urlApi = `${environment.urlApi}/room`;
-  private http = inject(HttpClient);
+  private urlApi: string = `${environment.urlApi}/room`;
+  private http: HttpClient = inject(HttpClient);
 
   getAll({ floor, ...filters }: IParamsPaginate): Observable<IResponseRooms> {
-    let params = new HttpParams({
+    let params: HttpParams = new HttpParams({
       fromObject: {
         ...filters,
         ...(JSON.stringify(floor) ? { floor: JSON.stringify(floor) } : {}),

@@ -1,14 +1,17 @@
+// Angular imports
 import { inject } from '@angular/core';
 import { HttpInterceptorFn } from '@angular/common/http';
 
+// Third Party Libraries imports
 import { finalize } from 'rxjs';
 
-import { LoadingService } from '../services/loading/loading.service';
+// Project imports
+import { LoadingService } from '../../services/loading/loading.service';
 
 export const loadingInterceptor: HttpInterceptorFn = (req, next) => {
-  let countRequest = 0;
+  let countRequest: number = 0;
 
-  const loadingService = inject(LoadingService);
+  const loadingService: LoadingService = inject(LoadingService);
 
   if (!countRequest) loadingService.isLoadingSet(true);
 

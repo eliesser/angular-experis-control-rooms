@@ -1,3 +1,4 @@
+// Angular imports
 import {
   Component,
   ElementRef,
@@ -7,9 +8,10 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { IModalOptions } from '../../shared/interfaces/modal-options.interface';
-import { ModalService } from '../../shared/services/modal/modal.service';
-import { LoadingComponent } from '../loading/loading.component';
+// Project imports
+import { IModalOptions } from '../../shared/interfaces';
+import { ModalService } from '../../shared/services';
+import { LoadingComponent } from '..';
 
 @Component({
   selector: 'app-modal',
@@ -21,29 +23,29 @@ import { LoadingComponent } from '../loading/loading.component';
 export class ModalComponent implements OnInit {
   modalOptions!: IModalOptions | undefined;
 
-  private modalService = inject(ModalService);
-  private element = inject(ElementRef);
+  private modalService: ModalService = inject(ModalService);
+  private element: ElementRef = inject(ElementRef);
 
   @HostListener('document:keydown.escape')
-  onEscape() {
+  onEscape(): void {
     this.modalService.close();
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.modalOptions = this.modalService.modalOptions;
   }
 
-  close() {
+  close(): void {
     this.modalService.modalOptions = undefined;
     this.element.nativeElement.remove();
   }
 
-  onClose() {
+  onClose(): void {
     this.modalService.close();
     this.modalOptions?.close();
   }
 
-  onAccept() {
+  onAccept(): void {
     this.modalOptions?.accept();
   }
 }

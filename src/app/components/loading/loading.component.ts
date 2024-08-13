@@ -1,6 +1,9 @@
+// Angular imports
 import { Component, Input, OnInit, inject } from '@angular/core';
 import { NgClass, NgIf } from '@angular/common';
-import { LoadingService } from '../../shared/services/loading/loading.service';
+
+// Project imports
+import { LoadingService } from '../../shared/services';
 
 @Component({
   selector: 'app-loading',
@@ -15,7 +18,7 @@ export class LoadingComponent implements OnInit {
 
   private loadingService = inject(LoadingService);
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loadingService.isLoadingWatch().subscribe((value: boolean) => {
       this.isLoading = value;
     });

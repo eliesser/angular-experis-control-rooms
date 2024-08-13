@@ -1,7 +1,9 @@
+// Angular imports
 import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
-import { IParamsFilters } from '../../../shared/interfaces/room.interface';
+// Project imports
+import { IParamsFilters } from '../../../shared/interfaces';
 
 @Component({
   selector: 'app-room-panel-filter',
@@ -13,7 +15,7 @@ export class RoomPanelFilterComponent {
 
   form!: FormGroup;
 
-  private formBuilder = inject(FormBuilder);
+  private formBuilder: FormBuilder = inject(FormBuilder);
 
   ngOnInit(): void {
     this.initForm();
@@ -56,7 +58,7 @@ export class RoomPanelFilterComponent {
     this.findRoomsEmit.emit(filters);
   }
 
-  onClose() {}
+  onClose(): void {}
 
   private initForm(): void {
     const controls: any = {

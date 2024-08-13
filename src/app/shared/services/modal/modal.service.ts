@@ -1,3 +1,4 @@
+// Angular imports
 import {
   ApplicationRef,
   ComponentRef,
@@ -10,6 +11,7 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 
+// Project imports
 import { ModalComponent } from '../../../components/modal/modal.component';
 import { IModalOptions } from '../../interfaces/modal-options.interface';
 
@@ -21,8 +23,8 @@ export class ModalService {
   newModalComponent!: ComponentRef<ModalComponent>;
   modalOptions!: IModalOptions | undefined;
 
-  private appRef = inject(ApplicationRef);
-  private injector = inject(EnvironmentInjector);
+  private appRef: ApplicationRef = inject(ApplicationRef);
+  private injector: EnvironmentInjector = inject(EnvironmentInjector);
 
   open(
     vcrOrComponent: ViewContainerRef,
@@ -36,7 +38,7 @@ export class ModalService {
     vcrOrComponent: ViewContainerRef | Type<C>,
     param2?: TemplateRef<Element> | IModalOptions,
     modalOptions?: IModalOptions
-  ) {
+  ): void {
     if (vcrOrComponent instanceof ViewContainerRef) {
       this.openWithTemplate(vcrOrComponent, param2 as TemplateRef<Element>);
       this.modalOptions = {
@@ -53,7 +55,7 @@ export class ModalService {
   private openWithTemplate(
     vcr: ViewContainerRef,
     content: TemplateRef<Element>
-  ) {
+  ): void {
     vcr.clear();
 
     const innerContent = vcr.createEmbeddedView(content);
@@ -64,7 +66,7 @@ export class ModalService {
     });
   }
 
-  private openWithComponent(component: Type<unknown>) {
+  private openWithComponent(component: Type<unknown>): void {
     const newComponent = createComponent(component, {
       environmentInjector: this.injector,
     });
@@ -82,7 +84,7 @@ export class ModalService {
     this.newComponent = newComponent;
   }
 
-  close() {
+  close(): void {
     this.newModalComponent.instance.close();
   }
 }

@@ -1,11 +1,11 @@
+// Angular imports
 import { Component, inject } from '@angular/core';
-import {
-  IParamsFilters,
-  IParamsPaginate,
-} from '../shared/interfaces/room.interface';
+
+// Project imports
+import { IParamsFilters, IParamsPaginate } from '../shared/interfaces';
 import { Room } from '../shared/models/room';
-import { ModalService } from '../shared/services/modal/modal.service';
-import { RoomFormComponent } from './components/room-form/room-form.component';
+import { ModalService } from '../shared/services';
+import { RoomFormComponent } from './components';
 
 @Component({
   selector: 'app-rooms',
@@ -16,14 +16,14 @@ export class RoomsComponent {
   filters!: IParamsPaginate;
   visiblePanel: boolean = false;
 
-  private modalService = inject(ModalService);
+  private modalService: ModalService = inject(ModalService);
 
-  setFilters(filters: IParamsFilters) {
+  setFilters(filters: IParamsFilters): void {
     this.visiblePanel = false;
     this.filters = filters as IParamsPaginate;
   }
 
-  openModal(room?: Room) {
+  openModal(room?: Room): void {
     this.modalService.open(RoomFormComponent, {
       title: room ? 'Edit' : 'New',
       confirmButtonText: 'Save',

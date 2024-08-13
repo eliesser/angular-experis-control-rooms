@@ -1,7 +1,14 @@
+// Angular imports
 import { Component, inject } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ModalService } from '../../../shared/services/modal/modal.service';
-import { RoomsService } from '../../../shared/services/rooms/rooms.service';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  AbstractControl,
+} from '@angular/forms';
+
+// Project imports
+import { ModalService, RoomsService } from '../../../shared/services';
 import { Room } from '../../../shared/models/room';
 
 @Component({
@@ -12,31 +19,31 @@ import { Room } from '../../../shared/models/room';
 export class RoomFormComponent {
   form!: FormGroup;
 
-  private formBuilder = inject(FormBuilder);
-  private modalService = inject(ModalService);
-  private roomsService = inject(RoomsService);
+  private formBuilder: FormBuilder = inject(FormBuilder);
+  private modalService: ModalService = inject(ModalService);
+  private roomsService: RoomsService = inject(RoomsService);
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.initForm();
   }
 
-  get nameField() {
+  get nameField(): AbstractControl<any, any> | null {
     return this.form.get('name');
   }
 
-  get floorField() {
+  get floorField(): AbstractControl<any, any> | null {
     return this.form.get('floor');
   }
 
-  get capacityField() {
+  get capacityField(): AbstractControl<any, any> | null {
     return this.form.get('capacity');
   }
 
-  get occupancyField() {
+  get occupancyField(): AbstractControl<any, any> | null {
     return this.form.get('occupancy');
   }
 
-  onSave() {
+  onSave(): void {
     this.form.markAllAsTouched();
     this.form.updateValueAndValidity();
 
@@ -58,7 +65,7 @@ export class RoomFormComponent {
         });
   }
 
-  private initForm() {
+  private initForm(): void {
     const {
       name = '',
       floor = 1,

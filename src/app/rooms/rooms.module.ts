@@ -1,18 +1,21 @@
+// Angular imports
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-
-import { RoomsRoutingModule } from './rooms-routing.module';
-
-import { RoomsComponent } from './rooms.component';
-import { RoomListComponent } from './components/room-list/room-list.component';
-import { RoomPanelFilterComponent } from './components/room-panel-filter/room-panel-filter.component';
-import { RoomCardComponent } from './components/room-card/room-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { PaginatorComponent } from '../components/paginator/paginator.component';
-import { CapacityOccupancyPipe } from '../shared/pipes/capacityOccupancy/capacity-occupancy.pipe';
-import { LoadingComponent } from '../components/loading/loading.component';
-import { RoomFormComponent } from './components/room-form/room-form.component';
+
+// Project imports
+import { RoomsRoutingModule } from './rooms-routing.module';
+import { RoomsComponent } from './rooms.component';
+import {
+  RoomListComponent,
+  RoomPanelFilterComponent,
+  RoomCardComponent,
+  RoomFormComponent,
+} from './components';
+import { PaginatorComponent, LoadingComponent } from '../components';
+
+import { CapacityOccupancyPipe } from '../shared/pipes';
 
 @NgModule({
   declarations: [

@@ -1,3 +1,4 @@
+// Angular imports
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import {
@@ -6,8 +7,9 @@ import {
   withInterceptorsFromDi,
 } from '@angular/common/http';
 
+// Project imports
 import { routes } from './app.routes';
-import { loadingInterceptor } from './shared/interceptors/loading.interceptor';
+import { loadingInterceptor } from './shared/interceptors';
 
 export const appConfig: ApplicationConfig = {
   providers: [

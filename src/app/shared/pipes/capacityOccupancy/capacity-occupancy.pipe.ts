@@ -1,3 +1,4 @@
+// Angular imports
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
