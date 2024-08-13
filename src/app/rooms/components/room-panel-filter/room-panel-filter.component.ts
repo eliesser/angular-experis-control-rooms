@@ -1,9 +1,7 @@
 import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import {
-  IParamsFilters,
-  IParamsPaginate,
-} from '../../../shared/interfaces/room.interface';
+
+import { IParamsFilters } from '../../../shared/interfaces/room.interface';
 
 @Component({
   selector: 'app-room-panel-filter',

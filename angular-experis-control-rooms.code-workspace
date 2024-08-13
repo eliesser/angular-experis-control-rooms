@@ -25,6 +25,7 @@
       "titleBar.inactiveForeground": "#e7e7e799"
     },
     "peacock.remoteColor": "#dd0531",
-    "npm-scripts.showStartNotification": false
+    "npm-scripts.showStartNotification": false,
+    "cSpell.words": ["experis", "mockeada", "mockear"]
   }
 }
