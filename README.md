@@ -43,7 +43,7 @@ Asegúrate de tener instaladas las siguientes herramientas en tu máquina:
    npm install
    ```
 
-## Generar la Base de Datos 🏃
+## Ejecutar la aplicación 🏃
 
 Antes de ejecutar la aplicación, necesitarás generar la base de datos:
 
@@ -57,6 +57,37 @@ Antes de ejecutar la aplicación, necesitarás generar la base de datos:
 
    ```bash
    npm run start
+   ```
+
+## Ejecutar la pruebas unitarias
+
+Cabe destacar que este reto no exige la implementación de pruebas unitarias. Sin embargo, mi intención es abordar algunos elementos de Angular, y en ese sentido he realizado pruebas unitarias para los siguientes elementos:
+
+- **Componentes**:
+  - `LoadingComponent`
+  - `RoomCardComponent`
+  - `RoomFormComponent`
+  - `RoomPanelFilterComponent`
+- **Servicios**:
+  - `LoadingService`
+  - `RoomsService`
+- **Pipe**:
+  - `CapacityOccupancyPipe`
+- **Interceptor**:
+  - `LoadingInterceptor`
+
+En este sentido, no se busca cubrir el nivel mínimo de cobertura del 80% exigido para que el código pase el mínimo de calidad posible.
+
+1. **Pruebas unitarias**: Ejecuta `ng test` en tu terminal. Esto ejecutará el proceso de correr todas las pruebas unitarias del proyecto.
+
+   ```bash
+   ng test
+   ```
+
+2. **Código de cobertura**: Ejecuta `ng test --code-coverage` en tu terminal. Esto ejecutará el proceso de correr todas las pruebas unitarias del proyecto y generar los archivos en la carpeta `coverage/angular-experis-control-rooms`.
+
+   ```bash
+   ng test --code-coverage
    ```
 
 ## Notas 💡
