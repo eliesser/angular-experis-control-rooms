@@ -5,14 +5,23 @@ import { TestBed } from '@angular/core/testing';
 import { LoadingService } from './loading.service';
 
 describe('LoadingService', () => {
-  let service: LoadingService;
+  let loadingService: LoadingService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(LoadingService);
+    loadingService = TestBed.inject(LoadingService);
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(loadingService).toBeTruthy();
+  });
+
+  it('should call isLoadingWatch', (doneFn) => {
+    loadingService.isLoadingSet(true);
+
+    loadingService.isLoadingWatch().subscribe((value: boolean) => {
+      expect(value).toBeTrue();
+      doneFn();
+    });
   });
 });
