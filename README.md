@@ -53,7 +53,7 @@ Antes de ejecutar la aplicación, necesitarás generar la base de datos:
    npm run generate-db
    ```
 
-2. **Ejecuta la app**: Ejecuta `npm run start` para iniciar el servidor de desarrollo de Angular. La aplicación estará disponible en `http://localhost:4200`. Así mismo, al levantar la aplicación, también se iniciará `json-server`, que servirá la API en `http://localhost:3000/room`.
+2. **Ejecuta la app**: Ejecuta `npm run start` para iniciar el servidor de desarrollo de Angular. La aplicación estará disponible en `http://localhost:4200`. Así mismo, al levantar la aplicación, también se iniciará `node server.js`, que servirá la API en `http://localhost:3000/room` esto es una api sencilla con `node` y `express` que para almacenar la data se esta usando un archivo plano, en este caso un .json `db.json` en el cual se realizan las peticiones agregando, editando y eliminando registros con `fs`.
 
    ```bash
    npm run start
@@ -61,17 +61,33 @@ Antes de ejecutar la aplicación, necesitarás generar la base de datos:
 
 ## Notas 💡
 
-Eh intentado cubrir muchas de las funcionalidades de angular, entre las cuales se han implementado module, componentes standalone, pipe, interceptor, model, interface, servicios, peticiones http, programación reactiva.
+He abarcado una amplia gama de funcionalidades en Angular para esta prueba técnica, incluyendo:
 
-- Para mockear las peticiones decidí usar `json-server` junto con `faker-js` se me hace mas simple poder configurar y obtener las peticiones http
-- En cuando al los estilos he decidido usar unicamente scss, para demostrar que tengo capacidad de hacer diseños responsivos, también pude usar un framework de css tal como `tailwind` o `Bootstrap` que fuera maquetado mucho mas rápido.
-- Me apasiona desarrollar funcionalidades, los retos me motivan a aprender cosas nuevas y pongo mis mejores ganas y positivismos para lograr el objetivo.
-- En cuanto a dificultades a nivel de funcionalidad no tuve mayor problema, pero si que imaginar como debe ser el flujo de la interfaz y los propios diseños hacen que me demore mucho, normalmente si tengo alguna herramienta de diseño colaborativo basada en la web tal como `Figma`, `Zeplin`, `Adobe XD` entre otros, mi desarrollo es mas rápido y preciso a nivel de maquetación.
+- **Módulos**: Creación y gestión de un módulo de rooms para una mejor organización del código.
+- **Rutas**: Implementación del enrutamiento para permitir la navegación dentro de la aplicación en este caso solo hay una ruta pero esta como se implementa con un router principal y uno del modulo y como interactúan entre si.
+- **Lazy Loading**: Configuración de carga diferida para mejorar el rendimiento de la aplicación.
+- **Componentes y Componentes Standalone**: Desarrollo tanto de componentes tradicionales como independientes para mayor flexibilidad.
+- **Métodos del Ciclo de Vida**: Utilización de `OnChanges`, `OnInit`, `OnDestroy` para gestionar el ciclo de vida de los componentes.
+- **Directivas**: Aplicación de directivas de atributos y estructurales para manipulación avanzada del DOM.
+- **Comunicación entre Componentes**: Implementación de la comunicación entre componentes con `@Input` para `Padre a Hijo` y `@Output` junto con `EventEmitter` para `Hijo a Padre`.
+- **Pipes**: Creación y uso de pipes para la transformación de datos en las vistas.
+- **Interceptors**: Implementación de interceptores para manejar peticiones HTTP y respuestas y mostrar un loading.
+- **Modelos e Interfaces**: Definición de modelos e interfaces para una estructura de datos robusta.
+- **Servicios**: Desarrollo de servicios para la lógica de negocio y la realización de peticiones HTTP a una API REST mockeada.
+- **Programación Reactiva con RxJS**: Uso de `Observables`, `BehaviorSubject` y operadores como `finalize` para gestionar flujos de datos asíncronos.
+
+Para simular las peticiones, utilicé `Node`, `Express` y `faker-js`, lo que facilitó la configuración y proporcionó respuestas HTTP más realistas.
+
+En cuanto a los estilos, elegí trabajar exclusivamente con `SCSS` para demostrar mi habilidad en el diseño de interfaces responsivas. Aunque también podría haber usado frameworks de CSS como `Tailwind` o `Bootstrap`, que permitirían una maquetación más rápida.
+
+A nivel funcional, no encontré mayores dificultades. Sin embargo, definir el flujo de la interfaz y diseñar los elementos me tomó más tiempo del esperado. Normalmente, herramientas de diseño colaborativo basadas en la web, como `Figma`, `Zeplin` o `Adobe XD`, acelerarían mi proceso de desarrollo y mejorarían la precisión en la maquetación.
+
+Por ultimo pero no menos importante mencionarles, que me apasiona desarrollar funcionalidades y los retos me motivan a aprender cosas nuevas. Siempre pongo todo mi empeño y optimismo para alcanzar los objetivos propuestos.
 
 ## Enlaces de Interés 💡
 
 - **Novedades de Angular**: Para conocer las últimas funcionalidades y mejoras introducidas en Angular en sus últimas versiones, puedes visitar el [blog oficial de Angular](https://blog.angular.io/).
 
-- **faker-js**: Hemos utilizado `faker-js` para generar datos falsos de hoteles de manera sencilla. Es muy útil para el desarrollo y pruebas de aplicaciones. Puedes encontrar más información y la documentación en el [repositorio de GitHub de faker-js](https://github.com/faker-js/faker).
+- **faker-js**: he utilizado `faker-js` para generar datos falsos de hoteles de manera sencilla. Es muy útil para el desarrollo y pruebas de aplicaciones. Puedes encontrar más información y la documentación en el [repositorio de GitHub de faker-js](https://github.com/faker-js/faker).
 
-- **json-server**: Hemos utilizado `json-server` para generar de una manera rápida un servidor REST API completo con operaciones CRUD a partir de un archivo JSON. Es útil para mockear APIs durante el desarrollo de aplicaciones frontend. Para más detalles, visita el [repositorio de GitHub de json-server](https://github.com/typicode/json-server).
+- **node y express**: he utilizado `node` y `express` para generar de una manera rápida un servidor REST API completo con operaciones CRUD a partir de un archivo JSON. Es útil para realizar REST API o mockear APIs durante el desarrollo de aplicaciones frontend. Para más detalles, visita la [documentación oficial](https://developer.mozilla.org/es/docs/Learn/Server-side/Express_Nodejs/Introduction).
