@@ -110,7 +110,9 @@ app.post('/room', (req, res) => {
       if (err) {
         return res.status(500).json({ error: 'Error saving data' });
       }
-      res.status(201).json(newRoom);
+      setTimeout(() => {
+        res.status(201).json(newRoom);
+      }, 1000);
     });
   });
 });
@@ -135,7 +137,9 @@ app.patch('/room/:id', (req, res) => {
       if (err) {
         return res.status(500).json({ error: 'Error saving data' });
       }
-      res.json(data.rooms[index]);
+      setTimeout(() => {
+        res.json(data.rooms[index]);
+      }, 1000);
     });
   });
 });
@@ -158,7 +162,9 @@ app.delete('/room/:id', (req, res) => {
       if (err) {
         return res.status(500).json({ error: 'Error saving data' });
       }
-      res.status(204).send();
+      setTimeout(() => {
+        res.status(204).send();
+      }, 1000);
     });
   });
 });

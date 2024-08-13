@@ -9,12 +9,13 @@ import { CommonModule } from '@angular/common';
 
 import { IModalOptions } from '../../shared/interfaces/modal-options.interface';
 import { ModalService } from '../../shared/services/modal/modal.service';
+import { LoadingComponent } from '../loading/loading.component';
 
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss'],
-  imports: [CommonModule],
+  imports: [CommonModule, LoadingComponent],
   standalone: true,
 })
 export class ModalComponent implements OnInit {

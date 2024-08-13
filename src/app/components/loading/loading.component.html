@@ -1,7 +1,12 @@
 <section 
   *ngIf="isLoading"
   class="loading"
+  [ngClass]="{'overlay': overlay}"
 >
+  <section 
+    *ngIf="overlay" 
+    class="bg-overlay"
+  ></section>
   <article class="content">
     <span class="loader"></span>
     Loading...

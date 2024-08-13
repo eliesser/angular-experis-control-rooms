@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { NgClass, NgIf } from '@angular/common';
 import { LoadingService } from '../../shared/services/loading/loading.service';
 
@@ -10,6 +10,7 @@ import { LoadingService } from '../../shared/services/loading/loading.service';
   styleUrl: './loading.component.scss',
 })
 export class LoadingComponent implements OnInit {
+  @Input() overlay: boolean = false;
   isLoading: boolean = false;
 
   private loadingService = inject(LoadingService);

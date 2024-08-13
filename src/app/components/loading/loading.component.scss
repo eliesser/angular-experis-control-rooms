@@ -1,12 +1,30 @@
 @import '../../../styles/variables';
 
 .loading {
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 400px;
   color: $primary;
   font-weight: bold;
+  z-index: 4;
+
+  &.overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 5;
+  }
+
+  .bg-overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 80%;
+    z-index: 4;
+  }
 
   .content {
     display: flex;
