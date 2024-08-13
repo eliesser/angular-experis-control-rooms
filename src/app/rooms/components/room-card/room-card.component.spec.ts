@@ -7,7 +7,7 @@ import { CapacityOccupancyPipe } from '../../../shared/pipes';
 import { Room } from '../../../shared/models/room';
 import { clickElement, getText } from '../../../../testing';
 
-fdescribe('RoomCardComponent', () => {
+describe('RoomCardComponent', () => {
   let component: RoomCardComponent;
   let fixture: ComponentFixture<RoomCardComponent>;
 
@@ -59,12 +59,12 @@ fdescribe('RoomCardComponent', () => {
   });
 
   it('should call onRemove() when do click button', () => {
-    spyOn(component.openModalEmit, 'emit');
+    spyOn(component.removeEmit, 'emit');
 
     clickElement(fixture, 'btn-remove', true);
 
     fixture.detectChanges();
 
-    expect(component.openModalEmit.emit).toHaveBeenCalledWith(mockData);
+    expect(component.removeEmit.emit).toHaveBeenCalledWith(mockData.id);
   });
 });
