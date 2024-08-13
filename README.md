@@ -76,7 +76,7 @@ He abarcado una amplia gama de funcionalidades en Angular para esta prueba técn
 - **Servicios**: Desarrollo de servicios para la lógica de negocio y la realización de peticiones HTTP a una API REST mockeada.
 - **Programación Reactiva con RxJS**: Uso de `Observables`, `BehaviorSubject` y operadores como `finalize` para gestionar flujos de datos asíncronos.
 
-Para simular las peticiones, utilicé `Node`, `Express` y `faker-js`, lo que facilitó la configuración y proporcionó respuestas HTTP más realistas.
+Para simular las peticiones, utilicé `Node`, `Express` y `faker-js`, lo que facilitó la configuración y proporcionó respuestas HTTP más realistas, también he dado 1 segundo de espera en cada petición para que se aprecie el uso del interceptor de loading.
 
 En cuanto a los estilos, elegí trabajar exclusivamente con `SCSS` para demostrar mi habilidad en el diseño de interfaces responsivas. Aunque también podría haber usado frameworks de CSS como `Tailwind` o `Bootstrap`, que permitirían una maquetación más rápida.
 
