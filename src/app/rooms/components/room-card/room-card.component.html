@@ -9,6 +9,7 @@
       "
     ></article>
     <button
+      data-testid="btn-remove"
       type="button"
       class="remove-button"
       (click)="onRemove()"
@@ -18,10 +19,10 @@
   </section>
   <section class='bg-secondary text-primary card-description'>
     <section class="item">
-      <article class='title'>
+      <article data-testid="name" class='title'>
         {{room.name}}
       </article>
-      <button class="primary" (click)="onEdit()">Edit</button>
+      <button data-testid="btn-edit" class="primary" (click)="onEdit()">Edit</button>
     </section>
     <section class="item">
       <article><span class="key">Floor:</span> {{room.floor}}</article>
