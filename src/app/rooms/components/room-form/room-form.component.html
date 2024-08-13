@@ -14,6 +14,7 @@
       Name:
     </label>
     <input
+      data-testid="name"
       class=""
       formControlName="name"
       name="name"
@@ -21,7 +22,7 @@
       autocomplete="off"
     />
     <ng-container *ngIf="nameField?.touched && nameField?.errors">
-      <small *ngIf="nameField?.hasError('required')" class="error">*Required</small>
+      <small data-testid="nameHasError" *ngIf="nameField?.hasError('required')" class="error">*Required</small>
     </ng-container>
   </section>
   <section class="section">
@@ -100,5 +101,5 @@
       <small *ngIf="occupancyField?.hasError('required')" class="error">*Required</small>
     </ng-container>
   </section>
-  <button class="button" type="submit"></button>
+  <button data-testid="submit" class="button" type="submit"></button>
 </form>

@@ -49,7 +49,10 @@ export class RoomFormComponent {
 
     if (!this.form.valid) return;
 
-    const { id = '' } = this.modalService.modalOptions?.params;
+    const params = this.modalService.modalOptions?.params;
+
+    let id = '';
+    if (params?.id) id = params.id;
 
     if (id.length)
       this.roomsService
