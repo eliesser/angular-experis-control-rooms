@@ -66,12 +66,19 @@ export class RoomFormComponent {
   }
 
   private initForm(): void {
-    const {
-      name = '',
-      floor = 1,
-      capacity = 2,
-      occupancy = 0,
-    } = this.modalService.modalOptions?.params;
+    const params = this.modalService.modalOptions?.params;
+
+    let name = '';
+    if (params?.name) name = params.name;
+
+    let floor = 1;
+    if (params?.floor) floor = params.floor;
+
+    let capacity = 2;
+    if (params?.capacity) capacity = params.capacity;
+
+    let occupancy = 0;
+    if (params?.occupancy) name = params.occupancy;
 
     this.form = this.formBuilder.group({
       name: [name, [Validators.required]],

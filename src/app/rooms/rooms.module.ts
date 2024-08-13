@@ -13,7 +13,7 @@ import {
   RoomCardComponent,
   RoomFormComponent,
 } from './components';
-import { PaginatorComponent, LoadingComponent } from '../components';
+import { PaginatorComponent } from '../components';
 
 import { CapacityOccupancyPipe } from '../shared/pipes';
 
@@ -32,7 +32,6 @@ import { CapacityOccupancyPipe } from '../shared/pipes';
     ReactiveFormsModule,
     PaginatorComponent,
     CapacityOccupancyPipe,
-    LoadingComponent,
   ],
 })
 export class RoomsModule {}

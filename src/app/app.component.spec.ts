@@ -1,4 +1,7 @@
+// Angular imports
 import { TestBed } from '@angular/core/testing';
+
+// Project imports
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {

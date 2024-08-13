@@ -1,3 +1,4 @@
+// Angular imports
 import { CapacityOccupancyPipe } from './capacity-occupancy.pipe';
 
 describe('CapacityOccupancyPipe', () => {

@@ -1,5 +1,7 @@
+// Angular imports
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+// Project imports
 import { LoadingComponent } from './loading.component';
 
 describe('LoadingComponent', () => {

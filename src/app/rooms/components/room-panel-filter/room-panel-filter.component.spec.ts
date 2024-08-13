@@ -1,5 +1,8 @@
+// Angular imports
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 
+// Project imports
 import { RoomPanelFilterComponent } from './room-panel-filter.component';
 
 describe('RoomPanelFilterComponent', () => {
@@ -8,9 +11,9 @@ describe('RoomPanelFilterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RoomPanelFilterComponent]
-    })
-    .compileComponents();
+      declarations: [RoomPanelFilterComponent],
+      imports: [ReactiveFormsModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(RoomPanelFilterComponent);
     component = fixture.componentInstance;

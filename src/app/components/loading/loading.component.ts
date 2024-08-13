@@ -16,7 +16,7 @@ export class LoadingComponent implements OnInit {
   @Input() overlay: boolean = false;
   isLoading: boolean = false;
 
-  private loadingService = inject(LoadingService);
+  private loadingService: LoadingService = inject(LoadingService);
 
   ngOnInit(): void {
     this.loadingService.isLoadingWatch().subscribe((value: boolean) => {
