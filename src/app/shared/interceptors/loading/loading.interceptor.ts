@@ -1,26 +1,41 @@
 // Angular imports
-import { inject } from '@angular/core';
-import { HttpInterceptorFn } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import {
+  HttpInterceptor,
+  HttpRequest,
+  HttpHandler,
+  HttpEvent,
+} from '@angular/common/http';
 
 // Third Party Libraries imports
-import { finalize } from 'rxjs';
+import { finalize, Observable } from 'rxjs';
 
 // Project imports
 import { LoadingService } from '../../services/loading/loading.service';
 
-export const loadingInterceptor: HttpInterceptorFn = (req, next) => {
-  let countRequest: number = 0;
+@Injectable()
+export class LoadingInterceptor implements HttpInterceptor {
+  private countRequest: number = 0;
 
-  const loadingService: LoadingService = inject(LoadingService);
+  constructor(private loadingService: LoadingService) {}
 
-  if (!countRequest) loadingService.isLoadingSet(true);
+  intercept(
+    req: HttpRequest<any>,
+    next: HttpHandler
+  ): Observable<HttpEvent<any>> {
+    if (this.countRequest === 0) {
+      this.loadingService.isLoadingSet(true);
+    }
 
-  countRequest++;
+    this.countRequest++;
 
-  return next(req).pipe(
-    finalize(() => {
-      countRequest--;
-      if (!countRequest) loadingService.isLoadingSet(false);
-    })
-  );
-};
+    return next.handle(req).pipe(
+      finalize(() => {
+        this.countRequest--;
+        if (this.countRequest === 0) {
+          this.loadingService.isLoadingSet(false);
+        }
+      })
+    );
+  }
+}
