@@ -7,9 +7,10 @@
     <section class="section header">
       <span class="title">FILTERS</span>
       <button
+        data-testid="btn-close"
         type="button"
         class="close-button"
-        (click)="onReset()"
+        (click)="onClose()"
       >
         <span class="sr-only">X</span>
       </button>
@@ -107,6 +108,7 @@
   </section>
   <section class="footer">
     <button
+      data-testid="btn-reset"
       class="secondary"
       type="button" 
       (click)="onReset()"
