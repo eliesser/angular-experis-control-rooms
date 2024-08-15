@@ -21,4 +21,28 @@ describe('PaginatorComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call onGoToPage()', () => {
+    spyOn(component.pageChange, 'emit');
+
+    component.onGoToPage(1);
+
+    expect(component.pageChange.emit).toHaveBeenCalledWith(1);
+  });
+
+  it('should call onPreviousPage()', () => {
+    spyOn(component.pageChange, 'emit');
+
+    component.onPreviousPage();
+
+    expect(component.pageChange.emit).toHaveBeenCalled();
+  });
+
+  it('should call onNextPage()', () => {
+    spyOn(component.pageChange, 'emit');
+
+    component.onNextPage();
+
+    expect(component.pageChange.emit).toHaveBeenCalled();
+  });
 });
