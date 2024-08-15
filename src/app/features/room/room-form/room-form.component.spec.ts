@@ -6,31 +6,52 @@ import { ReactiveFormsModule } from '@angular/forms';
 // Project imports
 import { RoomFormComponent } from './room-form.component';
 import { getText, mockObservable, setInputValue } from '../../../../testing';
-import { Room } from '../../../core/models';
-import { RoomService } from '../../../core/services';
+import { generateOneRoom, Room } from '../../../core/models';
+import { ModalService, RoomService } from '../../../core/services';
 
 describe('RoomFormComponent', () => {
   let component: RoomFormComponent;
   let fixture: ComponentFixture<RoomFormComponent>;
   let roomService: jasmine.SpyObj<RoomService>;
+  let modalService: jasmine.SpyObj<ModalService>;
+
+  const roomMock = generateOneRoom();
+
+  const modalOptions = {
+    title: 'Edit',
+    confirmButtonText: 'Save',
+    cancelButtonText: 'Cancel',
+    params: { ...roomMock },
+    accept: () => {},
+    close: () => {},
+  };
 
   beforeEach(async () => {
-    const modalServiceSpy = jasmine.createSpyObj('ModalService', ['open']);
     const roomServiceSpy = jasmine.createSpyObj('RoomService', [
       'create',
+      'update',
       'isAvailableByEmail',
     ]);
+    const modalServiceSpy = jasmine.createSpyObj('ModalService', [
+      'open',
+      'modalOptions',
+    ]);
+
+    modalServiceSpy.modalOptions = modalOptions;
 
     await TestBed.configureTestingModule({
       imports: [RoomFormComponent, ReactiveFormsModule],
       providers: [
         provideHttpClient(),
         { provide: RoomService, useValue: roomServiceSpy },
+        { provide: ModalService, useValue: modalServiceSpy },
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(RoomFormComponent);
+    modalService = TestBed.inject(ModalService) as jasmine.SpyObj<ModalService>;
     roomService = TestBed.inject(RoomService) as jasmine.SpyObj<RoomService>;
+
+    fixture = TestBed.createComponent(RoomFormComponent);
     component = fixture.componentInstance;
 
     fixture.detectChanges();
@@ -119,5 +140,30 @@ describe('RoomFormComponent', () => {
     component.onSave();
 
     expect(component.form.invalid).toBeTruthy();
+  });
+
+  it('should call create method on save if no id is present', () => {
+    modalService.modalOptions!.params.id = undefined;
+
+    const mockRoomWithoutId = {
+      name: 'Test',
+      image: 'https://via.placeholder.com/240x180/66ef8b/eb61ef.png?text=',
+      capacity: 16,
+      occupancy: 7,
+      floor: 4,
+    };
+
+    const mockRoom: Room = {
+      id: 'a3bda92f-523d-4d99-9823-63076e1758c5',
+      ...mockRoomWithoutId,
+    };
+
+    component.form.patchValue(mockRoomWithoutId);
+
+    roomService.create.and.returnValue(mockObservable(mockRoom));
+
+    component.onSave();
+
+    expect(roomService.create).toHaveBeenCalledWith(component.form.value);
   });
 });
