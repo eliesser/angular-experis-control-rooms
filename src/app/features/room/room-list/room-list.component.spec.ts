@@ -8,19 +8,18 @@ import {
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { NgFor } from '@angular/common';
+import { SimpleChanges, SimpleChange } from '@angular/core';
 
 // Project imports
 import { RoomService } from '../../../core/services';
 import {
   generateManyRooms,
   generateOneRoom,
-  IParamsPaginate,
   IResponseRoom,
 } from '../../../core/models';
 import { PaginatorComponent } from '../../../shared/components';
 import { RoomCardComponent, RoomListComponent } from '..';
 import { mockObservable } from '../../../../testing';
-import { SimpleChanges, SimpleChange } from '@angular/core';
 
 describe('RoomListComponent', () => {
   let component: RoomListComponent;
