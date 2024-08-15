@@ -56,7 +56,7 @@ app.get('/room', (req, res) => {
       return res.status(500).json({ error: 'Error reading data' });
     }
 
-    let room = data.room;
+    let room = data.rooms;
 
     const { name, capacity, occupancy, floor, page = 1, offset = 10 } = req.query;
 
@@ -104,7 +104,7 @@ app.post('/room', (req, res) => {
 
     newRoom.id = faker.string.uuid();
     newRoom.image = faker.image.urlPlaceholder({ width: 240, height: 180, text: '' });
-    data.room.unshift(newRoom);
+    data.rooms.unshift(newRoom);
 
     writeDB(data, (err) => {
       if (err) {
@@ -126,19 +126,19 @@ app.patch('/room/:id', (req, res) => {
     const roomId = req.params.id;
     const updatedRoom = req.body;
 
-    const index = data.room.findIndex(room => room.id === roomId);
+    const index = data.rooms.findIndex(room => room.id === roomId);
     if (index === -1) {
       return res.status(404).json({ error: 'Room not found' });
     }
 
-    data.room[index] = { ...data.room[index], ...updatedRoom };
+    data.rooms[index] = { ...data.rooms[index], ...updatedRoom };
 
     writeDB(data, (err) => {
       if (err) {
         return res.status(500).json({ error: 'Error saving data' });
       }
       setTimeout(() => {
-        res.json(data.room[index]);
+        res.json(data.rooms[index]);
       }, 1000);
     });
   });
@@ -151,12 +151,12 @@ app.delete('/room/:id', (req, res) => {
     }
 
     const roomId = req.params.id;
-    const index = data.room.findIndex(room => room.id === roomId);
+    const index = data.rooms.findIndex(room => room.id === roomId);
     if (index === -1) {
       return res.status(404).json({ error: 'Room not found' });
     }
 
-    data.room.splice(index, 1);
+    data.rooms.splice(index, 1);
 
     writeDB(data, (err) => {
       if (err) {
