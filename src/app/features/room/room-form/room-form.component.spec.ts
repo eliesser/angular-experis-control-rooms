@@ -110,6 +110,8 @@ describe('RoomFormComponent', () => {
       ...mockRoomWithoutId,
     };
 
+    modalService.modalOptions!.params.id = undefined;
+
     component.form.patchValue(mockRoomWithoutId);
 
     roomService.create.and.returnValue(mockObservable(mockRoom));
