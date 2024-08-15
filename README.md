@@ -61,22 +61,7 @@ Antes de ejecutar la aplicación, necesitarás generar la base de datos:
 
 ## Ejecutar la pruebas unitarias
 
-Cabe destacar que este reto no exige la implementación de pruebas unitarias. Sin embargo, mi intención es abordar algunos elementos de Angular, y en ese sentido he realizado pruebas unitarias para los siguientes elementos:
-
-- **Componentes**:
-  - `LoadingComponent`
-  - `RoomCardComponent`
-  - `RoomFormComponent`
-  - `RoomPanelFilterComponent`
-- **Servicios**:
-  - `LoadingService`
-  - `RoomService`
-- **Pipe**:
-  - `CapacityOccupancyPipe`
-- **Interceptor**:
-  - `LoadingInterceptor`
-
-En este sentido, no se busca cubrir el nivel mínimo de cobertura del 80% exigido para que el código pase el mínimo de calidad posible.
+Cabe destacar que este reto no exige la implementación de pruebas unitarias. Sin embargo, mi intención es abordar algunos elementos de Angular, y en ese sentido he realizado pruebas unitarias para los elementos, he intentado cubrir el nivel mínimo de cobertura del 80% exigido para que el código pase el mínimo de calidad posible, para las pruebas he utilizado unos helpers que están ubicados en `src/testing` para simplificar la escritura de código en mis pruebas, asi como también `faker-js`.
 
 1. **Pruebas unitarias**: Ejecuta `ng test` en tu terminal. Esto ejecutará el proceso de correr todas las pruebas unitarias del proyecto.
 
@@ -92,12 +77,11 @@ En este sentido, no se busca cubrir el nivel mínimo de cobertura del 80% exigid
 
 ## Notas 💡
 
-He abarcado una amplia gama de funcionalidades en Angular para esta prueba técnica, incluyendo:
+He abarcado una amplia gama de funcionalidades en Angular con algunas de las novedades de las versiones mas recientes de este maravilloso framework para esta prueba técnica, incluyendo:
 
-- **Módulos**: Creación y gestión de un módulo de room para una mejor organización del código.
-- **Rutas**: Implementación del enrutamiento para permitir la navegación dentro de la aplicación en este caso solo hay una ruta pero esta como se implementa con un router principal y uno del modulo y como interactúan entre si.
+- **Rutas**: Implementación del enrutamiento para permitir la navegación dentro de la aplicación en este caso hay una ruta principal y otra de room para mostrar como interactúan entre si.
 - **Lazy Loading**: Configuración de carga diferida para mejorar el rendimiento de la aplicación.
-- **Componentes y Componentes Standalone**: Desarrollo tanto de componentes tradicionales como independientes para mayor flexibilidad.
+- **Componentes Standalone**: Desarrollo de componentes independientes para mayor flexibilidad.
 - **Métodos del Ciclo de Vida**: Utilización de `OnChanges`, `OnInit`, `OnDestroy` para gestionar el ciclo de vida de los componentes.
 - **Directivas**: Aplicación de directivas de atributos y estructurales para manipulación avanzada del DOM.
 - **Comunicación entre Componentes**: Implementación de la comunicación entre componentes con `@Input` para `Padre a Hijo` y `@Output` junto con `EventEmitter` para `Hijo a Padre`.
@@ -105,11 +89,11 @@ He abarcado una amplia gama de funcionalidades en Angular para esta prueba técn
 - **Interceptors**: Implementación de interceptores para manejar peticiones HTTP y respuestas y mostrar un loading.
 - **Modelos e Interfaces**: Definición de modelos e interfaces para una estructura de datos robusta.
 - **Servicios**: Desarrollo de servicios para la lógica de negocio y la realización de peticiones HTTP a una API REST mockeada.
-- **Programación Reactiva con RxJS**: Uso de `Observables`, `BehaviorSubject` y operadores como `finalize` para gestionar flujos de datos asíncronos.
+- **Programación Reactiva con RxJS**: Uso de `Observables`, `BehaviorSubject` y operadores como `defer`, `of` ,`finalize` para gestionar flujos de datos asíncronos.
 
 Para simular las peticiones, utilicé `Node`, `Express` y `faker-js`, lo que facilitó la configuración y proporcionó respuestas HTTP más realistas, también he dado 1 segundo de espera en cada petición para que se aprecie el uso del interceptor de loading.
 
-En cuanto a los estilos, elegí trabajar exclusivamente con `SCSS` para demostrar mi habilidad en el diseño de interfaces responsivas. Aunque también podría haber usado frameworks de CSS como `Tailwind` o `Bootstrap`, que permitirían una maquetación más rápida.
+En cuanto a los estilos, elegí trabajar exclusivamente con `SCSS` para demostrar mi habilidad en el diseño de interfaces responsivas, he utilizado variables y estructurado mixin con los colores y breakpoints de la app. Aunque también podría haber usado frameworks de CSS como `Tailwind` o `Bootstrap`, que permitirían una maquetación más rápida.
 
 A nivel funcional, no encontré mayores dificultades. Sin embargo, definir el flujo de la interfaz y diseñar los elementos me tomó más tiempo del esperado. Normalmente, herramientas de diseño colaborativo basadas en la web, como `Figma`, `Zeplin` o `Adobe XD`, acelerarían mi proceso de desarrollo y mejorarían la precisión en la maquetación.
 
