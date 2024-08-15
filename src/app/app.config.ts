@@ -9,7 +9,7 @@ import {
 
 // Project imports
 import { routes } from './app.routes';
-import { LoadingInterceptor } from './shared/interceptors';
+import { LoadingInterceptor } from './core/interceptors';
 
 export const appConfig: ApplicationConfig = {
   providers: [

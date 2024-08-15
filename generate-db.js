@@ -4,12 +4,12 @@ const { faker } = require('@faker-js/faker');
 const NUM_ROMS = 100;
 const MAX_FLOOR = 5;
 
-const generateRooms = () => {
-  const rooms = [];
+const generateRoom = () => {
+  const room = [];
   for (let id = 0; id < NUM_ROMS; id++) {
     const capacity = faker.number.int({ min: 2, max: 30 })
     const occupancy = faker.number.int({ min: 0, max: capacity })
-    rooms.push({
+    room.push({
       id: faker.string.uuid(),
       name: `Room ${faker.word.words(1)}`,
       image: faker.image.urlPlaceholder({ width: 240, height: 180, text: '' }),
@@ -18,12 +18,12 @@ const generateRooms = () => {
       floor: faker.number.int({ min: 1, max: MAX_FLOOR }),
     });
   }
-  return rooms;
+  return room;
 };
 
 const generateDb = () => {
   const data = {
-    rooms: generateRooms()
+    room: generateRoom()
   };
 
   fs.writeFileSync('db.json', JSON.stringify(data, null, 2));

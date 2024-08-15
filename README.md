@@ -34,8 +34,8 @@ Asegúrate de tener instaladas las siguientes herramientas en tu máquina:
 1. **Clonar repositorio**: clonar el repositorio en tu entorno de desarrollo.
 
    ```bash
-   git clone https://github.com/eliesser/angular-experis-control-rooms.git
-   cd angular-experis-control-rooms
+   git clone https://github.com/eliesser/angular-experis-control-room.git
+   cd angular-experis-control-room
    ```
 
 2. **Instalar dependencias**: Abre una terminal en el directorio del proyecto y ejecuta `npm install` para instalar todas las dependencias necesarias.
@@ -47,7 +47,7 @@ Asegúrate de tener instaladas las siguientes herramientas en tu máquina:
 
 Antes de ejecutar la aplicación, necesitarás generar la base de datos:
 
-1. **Generar la base de datos**: Ejecuta `npm run generate-db` en tu terminal. Esto ejecutará el script `generate-db.js` para generar el archivo `db.json` con datos aleatorios de rooms.
+1. **Generar la base de datos**: Ejecuta `npm run generate-db` en tu terminal. Esto ejecutará el script `generate-db.js` para generar el archivo `db.json` con datos aleatorios de room.
 
    ```bash
    npm run generate-db
@@ -70,7 +70,7 @@ Cabe destacar que este reto no exige la implementación de pruebas unitarias. Si
   - `RoomPanelFilterComponent`
 - **Servicios**:
   - `LoadingService`
-  - `RoomsService`
+  - `RoomService`
 - **Pipe**:
   - `CapacityOccupancyPipe`
 - **Interceptor**:
@@ -84,7 +84,7 @@ En este sentido, no se busca cubrir el nivel mínimo de cobertura del 80% exigid
    ng test
    ```
 
-2. **Código de cobertura**: Ejecuta `ng test --code-coverage` en tu terminal. Esto ejecutará el proceso de correr todas las pruebas unitarias del proyecto y generar los archivos en la carpeta `coverage/angular-experis-control-rooms`.
+2. **Código de cobertura**: Ejecuta `ng test --code-coverage` en tu terminal. Esto ejecutará el proceso de correr todas las pruebas unitarias del proyecto y generar los archivos en la carpeta `coverage/angular-experis-control-room`.
 
    ```bash
    ng test --code-coverage
@@ -94,7 +94,7 @@ En este sentido, no se busca cubrir el nivel mínimo de cobertura del 80% exigid
 
 He abarcado una amplia gama de funcionalidades en Angular para esta prueba técnica, incluyendo:
 
-- **Módulos**: Creación y gestión de un módulo de rooms para una mejor organización del código.
+- **Módulos**: Creación y gestión de un módulo de room para una mejor organización del código.
 - **Rutas**: Implementación del enrutamiento para permitir la navegación dentro de la aplicación en este caso solo hay una ruta pero esta como se implementa con un router principal y uno del modulo y como interactúan entre si.
 - **Lazy Loading**: Configuración de carga diferida para mejorar el rendimiento de la aplicación.
 - **Componentes y Componentes Standalone**: Desarrollo tanto de componentes tradicionales como independientes para mayor flexibilidad.

@@ -3,13 +3,13 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: 'rooms',
+    path: 'room',
     loadChildren: () =>
-      import('./rooms/rooms.module').then((m) => m.RoomsModule),
+      import('./features/room/room.routes').then((r) => r.ROOM_ROUTES),
   },
   {
     path: '',
-    redirectTo: 'rooms',
+    redirectTo: 'room',
     pathMatch: 'full',
   },
 ];

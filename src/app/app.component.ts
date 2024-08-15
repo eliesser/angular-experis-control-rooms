@@ -3,12 +3,12 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 // Project imports
-import { HeaderComponent, LoadingComponent } from './components';
+import { LoadingComponent } from './shared/components';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, LoadingComponent],
+  imports: [RouterOutlet, LoadingComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

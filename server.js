@@ -56,35 +56,35 @@ app.get('/room', (req, res) => {
       return res.status(500).json({ error: 'Error reading data' });
     }
 
-    let rooms = data.rooms;
+    let room = data.room;
 
     const { name, capacity, occupancy, floor, page = 1, offset = 10 } = req.query;
 
     if (name) {
-      rooms = rooms.filter(room => room.name && room.name.toLowerCase().includes(name.toLowerCase()));
+      room = room.filter(room => room.name && room.name.toLowerCase().includes(name.toLowerCase()));
     }
 
     if (capacity) {
-      rooms = rooms.filter(room => room.capacity === Number(capacity));
+      room = room.filter(room => room.capacity === Number(capacity));
     }
 
     if (occupancy) {
-      rooms = rooms.filter(room => room.occupancy === Number(occupancy));
+      room = room.filter(room => room.occupancy === Number(occupancy));
     }
 
     if (floor) {
       const floors = JSON.parse(floor);
-      rooms = rooms.filter(room => room.floor && floors.includes(room.floor));
+      room = room.filter(room => room.floor && floors.includes(room.floor));
     }
 
-    const total = rooms.length;
+    const total = room.length;
     const start = (Number(page) - 1) * Number(offset);
     const end = start + Number(offset);
-    const paginatedRooms = rooms.slice(start, end);
+    const paginatedRoom = room.slice(start, end);
 
     setTimeout(() => {
       res.json({
-        data: paginatedRooms,
+        data: paginatedRoom,
         total
       });
     }, 1000);
@@ -104,7 +104,7 @@ app.post('/room', (req, res) => {
 
     newRoom.id = faker.string.uuid();
     newRoom.image = faker.image.urlPlaceholder({ width: 240, height: 180, text: '' });
-    data.rooms.unshift(newRoom);
+    data.room.unshift(newRoom);
 
     writeDB(data, (err) => {
       if (err) {
@@ -126,19 +126,19 @@ app.patch('/room/:id', (req, res) => {
     const roomId = req.params.id;
     const updatedRoom = req.body;
 
-    const index = data.rooms.findIndex(room => room.id === roomId);
+    const index = data.room.findIndex(room => room.id === roomId);
     if (index === -1) {
       return res.status(404).json({ error: 'Room not found' });
     }
 
-    data.rooms[index] = { ...data.rooms[index], ...updatedRoom };
+    data.room[index] = { ...data.room[index], ...updatedRoom };
 
     writeDB(data, (err) => {
       if (err) {
         return res.status(500).json({ error: 'Error saving data' });
       }
       setTimeout(() => {
-        res.json(data.rooms[index]);
+        res.json(data.room[index]);
       }, 1000);
     });
   });
@@ -151,12 +151,12 @@ app.delete('/room/:id', (req, res) => {
     }
 
     const roomId = req.params.id;
-    const index = data.rooms.findIndex(room => room.id === roomId);
+    const index = data.room.findIndex(room => room.id === roomId);
     if (index === -1) {
       return res.status(404).json({ error: 'Room not found' });
     }
 
-    data.rooms.splice(index, 1);
+    data.room.splice(index, 1);
 
     writeDB(data, (err) => {
       if (err) {

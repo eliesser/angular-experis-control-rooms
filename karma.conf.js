@@ -26,7 +26,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/angular-experis-control-rooms'),
+      dir: require('path').join(__dirname, './coverage/angular-experis-control-room'),
       subdir: '.',
       reporters: [
         { type: 'html' },
