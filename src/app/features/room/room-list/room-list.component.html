@@ -1,7 +1,7 @@
 <section class='list'>
   <section class='card-container'>
     <app-room-card 
-      *ngFor="let room of room" 
+      *ngFor="let room of rooms" 
       [room]="room"
       (openModalEmit)="openModal($event)"
       (removeEmit)="onDelete($event)"
