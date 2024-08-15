@@ -61,7 +61,7 @@ Antes de ejecutar la aplicación, necesitarás generar la base de datos:
 
 ## Ejecutar la pruebas unitarias
 
-Cabe destacar que este reto no exige la implementación de pruebas unitarias. Sin embargo, mi intención es abordar algunos elementos de Angular, y en ese sentido he realizado pruebas unitarias para los elementos, he intentado cubrir el nivel mínimo de cobertura del 80% exigido para que el código pase el mínimo de calidad posible, para las pruebas he utilizado unos helpers que están ubicados en `src/testing` para simplificar la escritura de código en mis pruebas, asi como también `faker-js`.
+Cabe destacar que este reto no exige la implementación de pruebas unitarias. Sin embargo, mi intención es abordar algunos elementos de Angular, y en ese sentido he realizado pruebas unitarias para los elementos, he intentado cubrir el nivel mínimo de cobertura del 80% exigido para que el código pase el mínimo de calidad posible, para las pruebas he utilizado unos helpers que están ubicados en `src/testing` para simplificar la escritura de código en mis pruebas, asi como también `faker-js`, por otro lado he realizado una configuración para la integración continua en la ruta `.github/workflows/ci.yml` para `GitHub Actions`, donde me aseguro que el código al hacer push a la rama main debe tener mínimo de cobertura del 80% para posteriormente poder hacer acciones como despegarlo automáticamente si esta pasa correctamente.
 
 1. **Pruebas unitarias**: Ejecuta `ng test` en tu terminal. Esto ejecutará el proceso de correr todas las pruebas unitarias del proyecto.
 
