@@ -1,5 +1,5 @@
 // Angular imports
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
 
@@ -7,6 +7,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { ShellLayoutComponent } from './shell-layout.component';
 import { RoomListComponent, RoomPanelFilterComponent } from '..';
 import { ModalService } from '../../../core/services';
+import { generateOneRoom, IParamsFilters } from '../../../core/models';
 
 describe('ShellLayoutComponent', () => {
   let component: ShellLayoutComponent;
@@ -37,4 +38,26 @@ describe('ShellLayoutComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call openModal()', fakeAsync(() => {
+    const mockData = generateOneRoom();
+
+    component.openModal(mockData);
+
+    expect(modalService.open).toHaveBeenCalled();
+  }));
+
+  it('should call openModal() without data', fakeAsync(() => {
+    component.openModal();
+
+    expect(modalService.open).toHaveBeenCalled();
+  }));
+
+  it('should call setFilters()', fakeAsync(() => {
+    const filters: IParamsFilters = { name: 'Test' };
+
+    component.setFilters(filters);
+
+    expect(component.filters.name).toEqual('Test');
+  }));
 });
