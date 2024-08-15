@@ -11,8 +11,7 @@ describe('RoomListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [RoomListComponent],
-      providers: [provideHttpClient()],
+      providers: [RoomListComponent, provideHttpClient()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(RoomListComponent);

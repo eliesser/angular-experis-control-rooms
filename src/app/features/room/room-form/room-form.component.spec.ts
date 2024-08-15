@@ -22,8 +22,7 @@ describe('RoomFormComponent', () => {
     ]);
 
     await TestBed.configureTestingModule({
-      declarations: [RoomFormComponent],
-      imports: [ReactiveFormsModule],
+      imports: [RoomFormComponent, ReactiveFormsModule],
       providers: [
         provideHttpClient(),
         { provide: RoomService, useValue: roomServiceSpy },

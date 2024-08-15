@@ -13,8 +13,7 @@ describe('RoomPanelFilterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [RoomPanelFilterComponent],
-      imports: [ReactiveFormsModule],
+      imports: [RoomPanelFilterComponent, ReactiveFormsModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(RoomPanelFilterComponent);
