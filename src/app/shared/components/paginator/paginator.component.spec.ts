@@ -33,6 +33,8 @@ describe('PaginatorComponent', () => {
   it('should call onPreviousPage()', () => {
     spyOn(component.pageChange, 'emit');
 
+    component.page = 2;
+
     component.onPreviousPage();
 
     expect(component.pageChange.emit).toHaveBeenCalled();
@@ -40,6 +42,9 @@ describe('PaginatorComponent', () => {
 
   it('should call onNextPage()', () => {
     spyOn(component.pageChange, 'emit');
+
+    component.page = 1;
+    component.totalPages = 2;
 
     component.onNextPage();
 
